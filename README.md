@@ -10,7 +10,7 @@ Please note that the following guidelines assume that readers have previous expe
 
 
 
-When using this code sample, please also consider viewing a recording of a webinar "Create and Manage AWS IoT Greengrass Deployments with AWS SDK for Python (Boto3)" that introduces the related concepts. To request a webinar recording, please use [this link](https://aws.amazon.com/about-aws/events/emea-english-webinar-series).
+When using this code sample, please also consider viewing a recording of a webinar "Create and Manage AWS IoT Greengrass Deployments with AWS SDK for Python (Boto3)" that introduces the related concepts. To request a webinar recording, please use [this link](https://pages.awscloud.com/EMEA-field-OE-IoT-webinar-series-2020-reg-event.html).
 
 # Who this sample is intended for  
 
