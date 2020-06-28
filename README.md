@@ -2,10 +2,10 @@
 
 This repository demonstrates how to build and deploy an IoT solution based on AWS IoT Greengrass by using AWS SDK for Python (Boto3).
 
-Please note that the following guidelines assumes that readers have previous experience with AWS IoT Greengrass.
-- If you you interested in getting started using AWS IoT Greengrass, please consider [this hands-on tutorial](https://docs.aws.amazon.com/greengrass/latest/developerguide/gg-gs.html)
-- If you are looking to automate AWS IoT Greengrass setup with AWS CloudFormation, please consider [this blog](https://aws.amazon.com/blogs/iot/automating-aws-iot-greengrass-setup-with-aws-cloudformation/). 
-- If you are looking for a ways to implementing a CI/CD pipeline for AWS IoT Greengrass projects, please consider [this blog](https://aws.amazon.com/blogs/iot/implementing-a-ci-cd-pipeline-for-aws-iot-greengrass-projects/)
+Please note that the following guidelines assume that readers have previous experience with AWS IoT Greengrass.
+- If you interested in getting started using AWS IoT Greengrass, please consider [this hands-on tutorial](https://docs.aws.amazon.com/greengrass/latest/developerguide/gg-gs.html)
+- If you are looking for a way to automate the AWS IoT Greengrass setup with AWS CloudFormation, please consider [this blog](https://aws.amazon.com/blogs/iot/automating-aws-iot-greengrass-setup-with-aws-cloudformation/). 
+- If you are looking for a way to implement a CI/CD pipeline for AWS IoT Greengrass projects, please consider [this blog](https://aws.amazon.com/blogs/iot/implementing-a-ci-cd-pipeline-for-aws-iot-greengrass-projects/)
 - If you want to automate AWS IoT Greengrass setup with AWS SDK for Python (Boto3), please read on
 
 
@@ -34,11 +34,11 @@ Please consider this sample if you are interested in programmatically executing 
   
 
 # Solution Architecture
-By executing steps in a Jupyter notebook  `notebooks/build_and_deploy_coffee_monitoring_solution.ipynb`, you will set up following ressources in your AWS account:
+By executing steps in a Jupyter notebook  `notebooks/build_and_deploy_coffee_monitoring_solution.ipynb`, you will set up following resources in your AWS account:
 
 ![](images/github_arch.png)
 
-Following figure provides additional level of detail regarding the resources related to authentication (i.e. X.509 certificates and keys). Please consider the webinar recording for an explanation:
+The following figure provides an additional level of detail regarding the resources related to authentication (i.e. X.509 certificates and keys). Please consider the webinar recording for an explanation:
 ![](images/github_arch_detail.png)
 
 \* Please use secure storage for private keys in any non-prototyping environment, considering the following documentation:
@@ -51,12 +51,12 @@ Above mentioned solution architecture will result in a solution with the followi
 ![](images/github_design.png)
 
 1. Coffee machines publish telemetry data on coffee consumption via MQTT to an AWS IoT Greengrass device
-2. The Greengrass device performs visualization of telemetry data from the coffee machines and publishes aggegegated telemetry to an AWS cloud
+2. The Greengrass device performs visualization of telemetry data from the coffee machines and publishes aggregated telemetry to an AWS cloud
 3. Users can view the telemetry data visualization in a web browser.
   
 
 
-# What ressources ara available in this repository 
+# What resources are available in this repository 
 This sample consists of the following parts:
 1. A Jupyter notebook in `notebooks/build_and_deploy_coffee_monitoring_solution.ipynb` allows a step-wise execution of the AWS SDK API calls to set up the architecture illustrated above.  __Please note: the explanations below assume the usage of  [Amazon SageMaker notebook instance](https://docs.aws.amazon.com/sagemaker/latest/dg/nbi.html) as a runtime environment for the Jupyter notebook. However, you can also use your own Jupyter runtime for the execution of a code in the Jupyter notebook.
     
@@ -76,12 +76,12 @@ Please ensure that your environment fulfills the following preconditions:
 - Python 3.7 is installed 
 - Your workstation can access a TCP port 8081 on the environment as a web server will be deployed onto the Greengrass device as a part of this sample
 
-__Note:you can change the port number by adjusting a parameter HTTP_PORT in a file `coffeemachine_telemetryprocessor/src/lambda.py`__
+__Note: you can change the port number by adjusting a parameter HTTP_PORT in a file `coffeemachine_telemetryprocessor/src/lambda.py`__
 
 
-A configuration file, certificate and private key neccessary to start the AWS IoT Greengrass Core will be generated in the Step 2 and installed in the step 3.
+A configuration file, certificate, and private key necessary to start the AWS IoT Greengrass Core will be generated in Step 2 and installed in step 3.
 
-**Please note: storing private keys on a local file system is generally an insecure practice and is done in this code sample only for demonstrational purposes assuming prototypic usage. It should be only used in prototyping environments after detailed risk analysis. The usage of that approach in any production environments is disencouraged. Please use a secure storage for private keys in any non-prototyping environment, considering the following documentation:**
+**Please note: storing private keys on a local file system is generally an insecure practice and is done in this code sample only for demonstrational purposes assuming prototypic usage. It should be only used in prototyping environments after a detailed risk analysis. The usage of that approach in any production environment is discouraged. Please use a secure storage for private keys in any non-prototyping environment, considering the following documentation:**
 - [Hardware security integration](https://docs.aws.amazon.com/greengrass/latest/developerguide/hardware-security.html)
 - [AWS IoT Greengrass core configuration file, specifically “crypto” section](https://docs.aws.amazon.com/greengrass/latest/developerguide/gg-core.html)
 
@@ -91,7 +91,7 @@ A configuration file, certificate and private key neccessary to start the AWS Io
 ## Step 2: Create an Amazon SageMaker notebook instance and clone this repository
 1. Please follow the [Amazon SageMaker developer guide](https://docs.aws.amazon.com/sagemaker/latest/dg/nbi.html) and create a new Amazon SageMaker notebook instance.  
 2. Clone this repository into the local directory on a newly created notebook instance.
-3. Please enure that IAM Role of the newly created notebook instance has the permissions for creating ressources for the following services:
+3. Please ensure that the IAM Role of the newly created notebook instance has the permissions for creating resources for the following services:
    - AWS Lambda
    - AWS IoT Core
    - AWS IoT Greengrass
@@ -99,12 +99,12 @@ A configuration file, certificate and private key neccessary to start the AWS Io
    - Amazon CloudWatch
    - AWS IAM
 
-A sample policy with is available under ARN `arn:aws:iam::aws:policy/AmazonSageMakerFullAccess`in AWS IAM. It provides full access to Amazon SageMaker via the AWS Management Console and SDK. It also provides select access to related services (e.g., S3, ECR, CloudWatch Logs). Please review and adjust your policy as neccessary.
+A sample policy with is available under ARN `arn:aws:iam::aws:policy/AmazonSageMakerFullAccess`in AWS IAM. It provides full access to Amazon SageMaker via the AWS Management Console and SDK. It also provides select access to related services (e.g., S3, ECR, CloudWatch Logs). Please review and adjust your policy as necessary.
 
 You may find further information on execution roles for Amazon SageMaker notebooks [here](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html)
 
 
-## Step 3: Run sample code for building and deploying an IoT solutiion
+## Step 3: Run sample code for building and deploying an IoT solution
 1. Open the Jupyter notebook  `notebooks/build_and_deploy_coffee_monitoring_solution.ipynb`
 2. If asked to select a kernel, please choose "conda_python3"
 3. Please execute commands in the Jupyter notebook 
@@ -134,7 +134,7 @@ After completion of Parts 1-12  of Jupyter notebook  `notebooks/build_and_deploy
 
 
 ### Step 5: Simulate ingestion of telemetry data from the coffee machines
-1. Clone this repository on an environment which has a network connectivity to a Greengrass device. You can also use the same runtime environment in which AWS IoT Greengrass Core software was deployed in Step 1.  
+1. Clone this repository on an environment that has a network connectivity to a Greengrass device. You can also use the same runtime environment in which AWS IoT Greengrass Core software was deployed in Step 1.  
 
 ``` 
 git clone https://github.com/aws-samples/aws-iot-greengrass-boto3
@@ -146,7 +146,7 @@ git clone https://github.com/aws-samples/aws-iot-greengrass-boto3
 cd coffeemachine_devicesimulator
 ```
 
-3. Install neccessary libraries and dependencies
+3. Install necessary libraries and dependencies
 
 The following example assumes Ubuntu/Debian Linux, you may need to adjust it for other Linux distributions:
 
@@ -177,14 +177,14 @@ certs/CoffeeMachine_1.pem
 certs/CoffeeMachine_2.pem
 ```
 
-**Please note: storing private keys on a local file system is generally an insecure pratcie and is done in this code sample only for demonstrational purposes assuming prototypic usage. It should be only used in prototyping environments after detailed risk analysis. The usage of that approach in production environments is urgently disencouraged. Please use a secure storage for private keys in any non-prototyping environment, considering the following documentation:**
+**Please note: storing private keys on a local file system is generally an insecure practice and is done in this code sample only for demonstrational purposes assuming prototypic usage. It should be only used in prototyping environments after a detailed risk analysis. The usage of that approach in production environments is urgently discouraged. Please use a secure storage for private keys in any non-prototyping environment, considering the following documentation:**
 - [Hardware security integration](https://docs.aws.amazon.com/greengrass/latest/developerguide/hardware-security.html)
 - [AWS IoT Greengrass core configuration file, specifically “crypto” section](https://docs.aws.amazon.com/greengrass/latest/developerguide/gg-core.html)
 
 
 
 
-5. Start the ingestion using the commands you prepred in Step 5 
+5. Start the ingestion using the commands you prepared in Step 5 
 ```
 ./coffemachine_simulator.sh CoffeeMachine1 certs/CoffeeMachine_1.pem certs/CoffeeMachine_1.key 1
 ./coffemachine_simulator.sh CoffeeMachine2 certs/CoffeeMachine_2.pem certs/CoffeeMachine_2.key 2
