@@ -58,7 +58,7 @@ Above mentioned solution architecture will result in a solution with the followi
 
 # What resources are available in this repository 
 This sample consists of the following parts:
-1. A Jupyter notebook in `notebooks/build_and_deploy_coffee_monitoring_solution.ipynb` allows a step-wise execution of the AWS SDK API calls to set up the architecture illustrated above.  __Please note: the explanations below assume the usage of  [Amazon SageMaker notebook instance](https://docs.aws.amazon.com/sagemaker/latest/dg/nbi.html) as a runtime environment for the Jupyter notebook. However, you can also use your own Jupyter runtime for the execution of a code in the Jupyter notebook.
+1. A Jupyter notebook in `notebooks/build_and_deploy_coffee_monitoring_solution.ipynb` allows a step-wise execution of the AWS SDK API calls to set up the architecture illustrated above.  __Please note: the explanations below assume the usage of  [Amazon SageMaker notebook instance](https://docs.aws.amazon.com/sagemaker/latest/dg/nbi.html) as a runtime environment for the Jupyter notebook. However, you can also use your own Jupyter runtime for the execution of a code in the Jupyter notebook.__
     
 2. An AWS Lambda function to be deployed on a Greengrass device. You will find a source code of that AWS Lambda function in a `coffeemachine_telemetryprocessor` directory. The code for deployment of that AWS Lambda function is included in the Jupyter notebook mentioned above.
 3. A script `coffeemachine_devicesimulator/coffemachine_simulator.py` to simulate data ingestion from the coffee machines.
